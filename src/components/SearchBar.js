@@ -4,9 +4,12 @@ class SearchBar extends React.Component {
 
     state = { term: '' };
     
-    onSubmitForm(e){
+    onSubmitForm = e => {
         e.preventDefault();
-        console.log(this.state.term);
+        //para mandar esse valor term para o App, vamos ter que utilizar o props e chamar a propriedade que criamos
+        //dentro da tag SearchBar no App. No caso, essa pripriedade tem o nome de onSubmit
+        //então, faremos da seguinte forma:
+        this.props.onSubmit(this.state.term);
     }
 
     render(){
